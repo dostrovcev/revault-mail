@@ -16,7 +16,11 @@ Built by [Dmitry Ostrovtsev](https://www.linkedin.com/in/dostrovcev/), founder o
 
 This is an early macOS release. Team conversations and the private Re:Vault backend are not part of this standalone edition. The app is free; your AI account's limits and any provider charges still apply.
 
+![Application with fictional demo data](docs/screenshot.png)
+
 ## Build and install
+
+[Download the Apple Silicon preview (v0.1.0)](https://github.com/dostrovcev/revault-mail/releases/tag/v0.1.0). It is an early, ad hoc signed build; Google/AI account setup is still required.
 
 Requires macOS 14+ and Xcode command line tools (`xcode-select --install`).
 

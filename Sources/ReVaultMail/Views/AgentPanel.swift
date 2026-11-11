@@ -194,23 +194,8 @@ struct AgentPanel: View {
                 }
             }
             HStack(spacing: 6) {
-                if hub.online {
-                    // на сервере модель и усилие выбирает сервер; выбор здесь ушёл бы впустую
-                    Label("On the server", systemImage: "server.rack")
-                        .font(.g(12, .medium)).foregroundStyle(Theme.muted)
-                        .help("Revolt runs on the Re:Vault server")
-                } else {
-                    Menu {
-                        ForEach(AppSettings.models, id: \.id) { m in Button(m.title) { settings.agentModel = m.id } }
-                    } label: { Text(AppSettings.models.first { $0.id == settings.agentModel }?.title ?? settings.agentModel) }
-                        .menuStyle(.borderlessButton).menuIndicator(.hidden).fixedSize()
-                        .font(.g(12, .medium)).foregroundStyle(Theme.muted)
-                    Menu {
-                        ForEach(AppSettings.efforts, id: \.self) { e in Button(e) { settings.agentEffort = e } }
-                    } label: { Text(settings.agentEffort) }
-                        .menuStyle(.borderlessButton).menuIndicator(.hidden).fixedSize()
-                        .font(.g(12, .medium)).foregroundStyle(Theme.muted)
-                }
+                Text(settings.agentProvider == "codex" ? "Codex · your ChatGPT" : "Claude Code · your Claude")
+                    .font(.g(12, .medium)).foregroundStyle(Theme.muted)
                 Spacer()
                 if let c = chat, agent.running.contains(c.id) {
                     Button { agent.stop(c.id) } label: { Image(systemName: "stop.fill").font(.system(size: 10)) }

@@ -634,11 +634,8 @@ struct ComposerView: View {
         }
         .onChange(of: ui.replyRequest?.nonce) { _, _ in handleReplyRequest() }
         .onChange(of: ui.noteRequest?.nonce) { _, _ in
-            if let r = ui.noteRequest {
-                let t = r.text.trimmingCharacters(in: .whitespaces)
-                if !t.isEmpty, !note.contains(t) { note = r.text + note }
-                noteFocus = UUID()
-            }
+            settings.showAgentPanel = true
+            ui.agentFocusNonce = UUID()
         }
         .onChange(of: ComposeBus.shared.restoreThread?.nonce) { _, _ in
             guard let r = ComposeBus.shared.restoreThread, r.key == detail.key else { return }

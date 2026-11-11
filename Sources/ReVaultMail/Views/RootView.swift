@@ -147,9 +147,6 @@ struct RightRail: View {
                 settings.showAgentPanel.toggle()
                 if settings.showAgentPanel { ui.agentFocusNonce = UUID() }
             }
-            IconButton("person.2", help: "Team conversations", active: store.mailbox.labelID == "TEAM") {
-                store.mailbox = Mailbox(account: nil, labelID: "TEAM", title: "Team")
-            }
             IconButton("square.and.pencil", help: "New email (⌘N)") { ui.showNewMessage = true }
             Spacer()
             IconButton("gearshape", help: "Settings (⌘,)") { openSettings() }
