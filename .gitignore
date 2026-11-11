@@ -1,0 +1,11 @@
+.build/
+build/
+.DS_Store
+.env
+.env.*
+*.local.*
+Resources/google_client.json
+client_secret*.json
+*.pem
+*.key
+backups/
